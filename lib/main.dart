@@ -1,11 +1,10 @@
 import 'dart:math';
 
-import 'package:countup/countup.dart';
-import 'package:flutter/cupertino.dart';
+
+
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
+
+
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -73,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 0, 133, 255),
+        backgroundColor: const Color.fromARGB(255, 0, 133, 255),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(70),
           child: AppBar(
