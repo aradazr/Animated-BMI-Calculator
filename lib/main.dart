@@ -2,7 +2,9 @@ import 'dart:math';
 
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 
 import 'package:gap/gap.dart';
@@ -75,7 +77,28 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: const Color.fromARGB(255, 0, 133, 255),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(70),
-          child: AppBar(
+          child: appBar(),
+        ),
+        body: _page1()
+      ),
+    );
+  }
+  Widget _page1(){
+    return  Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: Center(
+            child:
+
+                //Main column
+                stackColumn()
+
+
+          ),
+        );
+  }
+
+Widget appBar(){
+  return AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
             leadingWidth: 300,
@@ -93,176 +116,35 @@ class _MyHomePageState extends State<MyHomePage> {
                   right: 15,
                   top: 10,
                 ),
-                child: Icon(
-                  Icons.home,
-                  color: Colors.black,
-                  size: 35,
-                ),
+                child:Image.asset('assets/images/home.png',)
               )
             ],
-          ),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 30),
-          child: Center(
-            child:
+          );
+}
 
-                //Main column
-                Stack(children: [
-              Column(
-                children: [
-                  //gender text
-                  Text(
-                    'Gender?',
-                    style: GoogleFonts.alatsi(
-                        decoration: TextDecoration.underline,
-                        fontSize: 35,
-                        color: Colors.white,
-                        decorationColor: Colors.white),
+
+
+
+Widget bottomText(){
+  return Positioned(
+                bottom: 1,
+                left: 20,
+                child: SizedBox(
+                  height: 170,
+                  child: Text(
+                    '''Lorem ipsum is
+placeholder text 
+commonly used in the graphic, print,
+and publishing industries for 
+previewing layouts and visual mockups.''',
+                    style: GoogleFonts.alatsi(fontSize: 22),
                   ),
+                ),
+              );
+}
 
-                  Gap(20),
-                  //male and female bttn
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      //Male Bttn
-                      Container(
-                        alignment: Alignment.center,
-                        height: 55,
-                        width: 130,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(90),
-                            color: Colors.white),
-                        child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              _selectedGender = 0;
-                            });
-                          },
-                          child: Text('Male',
-                              style: GoogleFonts.alatsi(
-                                fontSize: 30,
-                                color: _selectedGender == 0
-                                    ? Color.fromARGB(255, 0, 133, 255)
-                                    : Colors.black,
-                              )),
-                        ),
-                      ),
-
-                      Gap(10),
-                      //Female Bttn
-                      Container(
-                        alignment: Alignment.center,
-                        height: 55,
-                        width: 130,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(90),
-                            color: Colors.white),
-                        child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              _selectedGender = 1;
-                            });
-                          },
-                          child: Text('Female',
-                              style: GoogleFonts.alatsi(
-                                fontSize: 30,
-                                color: _selectedGender == 1
-                                    ? Color.fromARGB(255, 0, 133, 255)
-                                    : Colors.black,
-                              )),
-                        ),
-                      )
-                    ],
-                  ),
-                  Gap(30)
-
-                  //height and slider
-
-                  //Height Text
-                  ,
-                  Text('Height',
-                      style: GoogleFonts.alatsi(
-                          fontSize: 35, color: Colors.white)),
-                  //slider
-                  SfSlider(
-                    value: _height.toDouble(),
-                    onChanged: (value) {
-                      setState(() {
-                        _height = value.toInt();
-                      });
-                    },
-                    activeColor: Colors.white,
-                    inactiveColor: Color.fromARGB(150, 0, 0, 0),
-                    min: 0,
-                    max: 300,
-                    stepSize: 1.0,
-                  ),
-                  Text('$_height CM',
-                      style: GoogleFonts.alatsi(
-                          fontSize: 25, color: Colors.white)),
-                  //------------------------------------------------------------------------------------------
-                  Gap(30),
-
-                  Text('Weight',
-                      style: GoogleFonts.alatsi(
-                          fontSize: 35, color: Colors.white)),
-                  //slider
-                  SfSlider(
-                    value: _weight.toDouble(),
-                    onChanged: (value) {
-                      setState(() {
-                        _weight = value.toInt();
-                      });
-                    },
-                    activeColor: Colors.white,
-                    inactiveColor: Color.fromARGB(150, 0, 0, 0),
-                    min: 35,
-                    max: 170,
-                    stepSize: 1.0,
-                  ),
-                  Text('$_weight kg',
-                      style: GoogleFonts.alatsi(
-                          fontSize: 25, color: Colors.white)),
-                ],
-              ),
-              //3 layer in the bottom of the screen
-              Stack(
-                fit: StackFit.expand,
-                children: [
-                  Positioned(
-                      bottom: -5,
-                      child: SizedBox(
-                        width: 412,
-                        child: Image.asset(
-                          'assets/images/Vector 2.png',
-                          fit: BoxFit.cover,
-                        ),
-                      )),
-                  Positioned(
-                      bottom: 15,
-                      child: SizedBox(
-                        width: 412,
-                        child: Image.asset(
-                          'assets/images/Vector 3.png',
-                          fit: BoxFit.cover,
-                        ),
-                      )),
-                  Positioned(
-                      bottom: -20,
-                      child: SizedBox(
-                        width: 412,
-                        child: Image.asset(
-                          'assets/images/Vector 1.png',
-                          fit: BoxFit.cover,
-                        ),
-                      )),
-                ],
-              ),
-
-              //next page bttn
-              Positioned(
+Widget nextPageBttn(){
+  return Positioned(
                 bottom: 130,
                 right: 40,
                 child: Container(
@@ -311,28 +193,227 @@ class _MyHomePageState extends State<MyHomePage> {
                       
                       ),
                 ),
-              ),
+              );
+}
 
-              //bottom text
-              Positioned(
-                bottom: 1,
-                left: 20,
-                child: SizedBox(
-                  height: 170,
-                  child: Text(
-                    '''Lorem ipsum is
-placeholder text 
-commonly used in the graphic, print,
-and publishing industries for 
-previewing layouts and visual mockups.''',
-                    style: GoogleFonts.alatsi(fontSize: 22),
-                  ),
-                ),
-              )
-            ]),
-          ),
+Widget layersBottom(){
+  return Stack(
+                fit: StackFit.expand,
+                children: [
+                  Positioned(
+                      bottom: -5,
+                      child: SizedBox(
+                        width: 412,
+                        child: Image.asset(
+                          'assets/images/Vector 2.png',
+                          fit: BoxFit.cover,
+                        ),
+                      )),
+                  Positioned(
+                      bottom: 15,
+                      child: SizedBox(
+                        width: 412,
+                        child: Image.asset(
+                          'assets/images/Vector 3.png',
+                          fit: BoxFit.cover,
+                        ),
+                      )),
+                  Positioned(
+                      bottom: -20,
+                      child: SizedBox(
+                        width: 412,
+                        child: Image.asset(
+                          'assets/images/Vector 1.png',
+                          fit: BoxFit.cover,
+                        ),
+                      )),
+                ],
+              );
+}
+
+Widget weightKg(){
+  return Text('$_weight kg',
+                      style: GoogleFonts.alatsi(
+                          fontSize: 25, color: Colors.white));
+}
+
+Widget weightSlider(){
+  return SfSlider(
+                    value: _weight.toDouble(),
+                    onChanged: (value) {
+                      setState(() {
+                        _weight = value.toInt();
+                      });
+                    },
+                    activeColor: Colors.white,
+                    inactiveColor: Color.fromARGB(150, 0, 0, 0),
+                    min: 35,
+                    max: 170,
+                    stepSize: 1.0,
+                  );
+}
+
+Widget weightText(){
+  return Text('Weight',
+                      style: GoogleFonts.alatsi(
+                          fontSize: 35, color: Colors.white));
+}
+
+Widget heightCm(){
+  return Text('$_height CM',
+                      style: GoogleFonts.alatsi(
+                          fontSize: 25, color: Colors.white));
+}
+
+Widget heightSlider(){
+  return SfSlider(
+                    value: _height.toDouble(),
+                    onChanged: (value) {
+                      setState(() {
+                        _height = value.toInt();
+                      });
+                    },
+                    activeColor: Colors.white,
+                    inactiveColor: Color.fromARGB(150, 0, 0, 0),
+                    min: 0,
+                    max: 300,
+                    stepSize: 1.0,
+                  );
+}
+
+Widget heightText(){
+  return Text('Height',
+                      style: GoogleFonts.alatsi(
+                          fontSize: 35, color: Colors.white));
+}
+
+Widget genderText(){
+  return Text(
+                    'Gender?',
+                    style: GoogleFonts.alatsi(
+                        decoration: TextDecoration.underline,
+                        fontSize: 35,
+                        color: Colors.white,
+                        decorationColor: Colors.white),
+                  );
+}
+
+  Widget maleAndFemale(){
+
+    return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      //Male Bttn
+                     maleBttn(),
+
+                      Gap(10),
+                      //Female Bttn
+                      Container(
+                        alignment: Alignment.center,
+                        height: 55,
+                        width: 130,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(90),
+                            color: Colors.white),
+                        child: TextButton(
+                          onPressed: () {
+                            setState(() {
+                              _selectedGender = 1;
+                            });
+                          },
+                          child: Text('Female',
+                              style: GoogleFonts.alatsi(
+                                fontSize: 30,
+                                color: _selectedGender == 1
+                                    ? Color.fromARGB(255, 0, 133, 255)
+                                    : Colors.black,
+                              )),
+                        ),
+                      )
+                    ],
+                  );
+  }
+
+  Widget maleBttn(){
+    return  Container(
+                        alignment: Alignment.center,
+                        height: 55,
+                        width: 130,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(90),
+                            color: Colors.white),
+                        child: TextButton(
+                          onPressed: () {
+                            setState(() {
+                              _selectedGender = 0;
+                            });
+                          },
+                          child: Text('Male',
+                              style: GoogleFonts.alatsi(
+                                fontSize: 30,
+                                color: _selectedGender == 0
+                                    ? Color.fromARGB(255, 0, 133, 255)
+                                    : Colors.black,
+                              )),
+                        ),
+                      );
+  }
+ 
+  
+  Widget stackColumn(){
+
+    return  Center(
+      child:
+    
+          //Main column
+          Stack(children: [
+        Column(
+          children: [
+            //gender text
+            genderText()
+    
+            ,Gap(20),
+            //male and female bttn
+            maleAndFemale(),
+    
+            Gap(30)
+    
+            //height and slider
+    
+            //Height Text
+            ,
+            heightText(),
+    
+    
+            //slider
+            heightSlider(),
+    
+    
+    
+            heightCm(),
+    
+            //------------------------------------------------------------------------------------------
+            Gap(30),
+    
+            weightText(),
+    
+    
+            //slider
+            weightSlider(),
+    
+    
+            weightKg(),
+          ],
         ),
-      ),
+        //3 layer in the bottom of the screen
+        layersBottom(),
+    
+        //next page bttn
+        nextPageBttn(),
+    
+        //bottom text
+        bottomText()
+      ]),
     );
   }
   
@@ -664,3 +745,5 @@ previewing layouts and visual mockups.''',
     ));
   }
 }
+
+

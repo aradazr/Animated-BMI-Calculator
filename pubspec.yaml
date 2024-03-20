@@ -70,6 +70,7 @@ flutter:
     - assets/images/Vector 3.png
     - assets/images/arrowBack.png
     - assets/images/arrowRight.png
+    - assets/images/home.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
