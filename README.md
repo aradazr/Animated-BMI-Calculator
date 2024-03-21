@@ -1,16 +1,5 @@
-# bmi_calc
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+An Animated BMI Calculator That You Can use 
+and Practice With. do Hope You enjoy it 
+And Dont forget to LIKE it.
+![Bmi](https://github.com/aradazr/Animated-BMI-Calculator/assets/150952102/68e6ed7d-af1e-4f04-bb97-dc53784f8427)
+![bmi6](https://github.com/aradazr/Animated-BMI-Calculator/assets/150952102/951b4e74-ca0d-4764-9104-5f3b4dc8247c)
