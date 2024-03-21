@@ -8,6 +8,15 @@ void main() {
   runApp(const MyApp());
 }
 
+
+//BMI-Calculator
+
+//Created By aradazr.dev
+
+//Instagram: aradazr.dev
+
+//GitHub: https://github.com/aradazr
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
