@@ -282,7 +282,7 @@ Widget genderText(){
   return Text(
                     'Gender?',
                     style: GoogleFonts.alatsi(
-                        decoration: TextDecoration.underline,
+                        
                         fontSize: 35,
                         color: Colors.white,
                         decorationColor: Colors.white),
